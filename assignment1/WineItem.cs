@@ -64,8 +64,8 @@ namespace assignment1
         {
             string itemOutput = "";
 
-            itemOutput += this.WineId + ", ";
-            itemOutput += this.Description + ", ";
+            itemOutput += this.WineId + ",  ";
+            itemOutput += this.Description + " , ";
             itemOutput += this.Pack;
 
             return itemOutput;

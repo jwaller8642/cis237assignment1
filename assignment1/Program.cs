@@ -20,12 +20,16 @@ namespace assignment1
             Console.WriteLine("");
           
             WineItemCollection wineCollection = new WineItemCollection();
-            
+            CSVProcessor listWine = new CSVProcessor();
 
             if (UserInputMenu == "list")
             {
+                
                 Console.Write("You typed in list");
-                //CSVProcessor listWine = new CSVProcessor();
+                
+
+                listWine.load(wineCollection);
+
                 Console.WriteLine(wineCollection.getWineCollection());
             }
             else if (UserInputMenu == "search")

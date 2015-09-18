@@ -33,12 +33,9 @@ namespace assignment1
                     WineItem Wine = new WineItem(split[0], split[1], split[2]);
                     WineList.AddWine(Wine);
                 }
-               // InputFile.Close();
+               InputFile.Close();
             }
             list = true;
         }
-
-
-
     }
 }
