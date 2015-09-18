@@ -8,22 +8,25 @@ namespace assignment1
 {
     class Program
     {
-
+        
         static string UserInputMenu = string.Empty;
         static void Main(string[] args)
         {
-            Console.WriteLine ("To Veiw Wine List type list");
-            Console.WriteLine("To Search Wine Search type search");
-            Console.WriteLine("To Add New Wine type add ");
+            Console.WriteLine ("list");
+            Console.WriteLine("search");
+            Console.WriteLine("add ");
             Console.Write("Choose an option: ");
             UserInputMenu = Console.ReadLine();
             Console.WriteLine("");
+          
+            WineItemCollection wineCollection = new WineItemCollection();
             
 
             if (UserInputMenu == "list")
             {
-                Console.Write("You typed ih list");
-                CSVProcessor listWine = new CSVProcessor();
+                Console.Write("You typed in list");
+                //CSVProcessor listWine = new CSVProcessor();
+                Console.WriteLine(wineCollection.getWineCollection());
             }
             else if (UserInputMenu == "search")
             {
