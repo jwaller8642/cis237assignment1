@@ -8,29 +8,41 @@ namespace assignment1
 {
     class Program
     {
-        
+
+       
         static string UserInputMenu = string.Empty;
         static void Main(string[] args)
         {
-            Console.WriteLine ("list");
-            Console.WriteLine("search");
-            Console.WriteLine("add ");
+            Console.WriteLine("type load to Load the list");
+            Console.WriteLine("Type list to print list");
+            Console.WriteLine("type seach to search list");
+            Console.WriteLine("type add to add wine ");
+            Console.WriteLine("Exit");
+
             Console.Write("Choose an option: ");
             UserInputMenu = Console.ReadLine();
             Console.WriteLine("");
-          
             WineItemCollection wineCollection = new WineItemCollection();
             CSVProcessor listWine = new CSVProcessor();
 
-            if (UserInputMenu == "list")
+            while (UserInputMenu != "exit")
             {
-                
+ if (UserInputMenu == "load")
+
+          {
+              //loadWine();
+              listWine.load(wineCollection);
+              loadMenu();
+          }
+          else if (UserInputMenu == "list")
+            {
+              //  printWine();
+               
                 Console.Write("You typed in list");
-                
-
-                listWine.load(wineCollection);
-
-                Console.WriteLine(wineCollection.getWineCollection());
+              
+                   Console.WriteLine(wineCollection.getWineCollection());
+                   loadMenu();
+               
             }
             else if (UserInputMenu == "search")
             {
@@ -38,9 +50,51 @@ namespace assignment1
             }
             else if (UserInputMenu == "add")
             {
-                Console.Write("You typed in add");
+                Console.WriteLine("You typed in add");
+                loadMenu();
             }
-            Console.ReadKey();
+            
+            else if (UserInputMenu == "exit")
+            {
+                End();
+            }
+            }
         }
-    }
+
+private static void End()
+{
+    //Closes the program
 }
+
+        
+            private static void loadMenu()
+            {
+                Console.WriteLine("type load to Load the list");
+                Console.WriteLine("Type list to print list");
+                Console.WriteLine("type seach to search list");
+                Console.WriteLine("type add to add wine ");
+                Console.WriteLine("Exit");
+                Console.WriteLine("");
+                Console.Write("Choose an option: ");
+                UserInputMenu = Console.ReadLine();
+             }
+
+
+            //private static void loadWine()
+            // {
+            //   WineItemCollection wineCollection = new WineItemCollection();
+            //     CSVProcessor listWine = new CSVProcessor();
+            //      listWine.load(wineCollection);
+            //  }
+
+
+            //  public static void printWine()
+            //  {
+            //       WineItemCollection wineCollection = new WineItemCollection();
+            //     Console.WriteLine(wineCollection.getWineCollection());
+            //  }
+
+            
+    }
+    }
+
