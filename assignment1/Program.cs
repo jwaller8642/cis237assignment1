@@ -11,6 +11,7 @@ namespace assignment1
 
        
         static string UserInputMenu = string.Empty;
+
         static void Main(string[] args)
         {
             Console.WriteLine("type load to Load the list");
@@ -21,13 +22,15 @@ namespace assignment1
 
             Console.Write("Choose an option: ");
             UserInputMenu = Console.ReadLine();
-            Console.WriteLine("");
+            
             WineItemCollection wineCollection = new WineItemCollection();
             CSVProcessor listWine = new CSVProcessor();
+            WineItemCollection wineAdd = new WineItemCollection();
 
-            while (UserInputMenu != "exit")
-            {
- if (UserInputMenu == "load")
+
+     while (UserInputMenu != "exit")
+         {
+           if (UserInputMenu == "load")
 
           {
               //loadWine();
@@ -47,10 +50,12 @@ namespace assignment1
             else if (UserInputMenu == "search")
             {
                 Console.Write("You typed in search");
+                loadMenu();
             }
             else if (UserInputMenu == "add")
             {
                 Console.WriteLine("You typed in add");
+                wineAdd.WineAdd();
                 loadMenu();
             }
             
@@ -58,17 +63,18 @@ namespace assignment1
             {
                 End();
             }
-            }
-        }
-
-private static void End()
-{
-    //Closes the program
-}
-
-        
+            else //if(UserInputMenu != "eixt" || UserInputMenu != "list" || UserInputMenu != "load" || UserInputMenu != "search")
+            {
+                Console.WriteLine(UserInputMenu +" is not an option");
+                Console.WriteLine("please enter one the following");
+                loadMenu();
+            }    
+         }
+       }
+    
             private static void loadMenu()
             {
+                Console.WriteLine("-----");
                 Console.WriteLine("type load to Load the list");
                 Console.WriteLine("Type list to print list");
                 Console.WriteLine("type seach to search list");
@@ -79,7 +85,10 @@ private static void End()
                 UserInputMenu = Console.ReadLine();
              }
 
-
+            private static void End()
+            {
+                //Closes the program
+            }
             //private static void loadWine()
             // {
             //   WineItemCollection wineCollection = new WineItemCollection();
