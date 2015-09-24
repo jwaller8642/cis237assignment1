@@ -20,6 +20,8 @@ namespace assignment1
         StreamReader InputFile;
         string[] split;
         //string CSVFile;
+
+        //loads csv file from driectory
         public void load(WineItemCollection WineList)
         {
             if (!list)

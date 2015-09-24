@@ -14,6 +14,7 @@ namespace assignment1
 
         static void Main(string[] args)
         {
+            Console.WriteLine("Must load csv file first to print");
             Console.WriteLine("type load to Load the list");
             Console.WriteLine("Type list to print list");
             Console.WriteLine("type seach to search list");
@@ -21,15 +22,18 @@ namespace assignment1
             Console.WriteLine("Exit");
 
             Console.Write("Choose an option: ");
-            UserInputMenu = Console.ReadLine();
+            UserInputMenu = Console.ReadLine(); //user input
             
+            //objects from diffent classes
             WineItemCollection wineCollection = new WineItemCollection();
             CSVProcessor listWine = new CSVProcessor();
             WineItemCollection wineAdd = new WineItemCollection();
+            WineItemCollection searchWine = new WineItemCollection();
 
-
+            //whlie loops that keep going until users hit exit
      while (UserInputMenu != "exit")
          {
+         //loads csv file
            if (UserInputMenu == "load")
 
           {
@@ -37,6 +41,7 @@ namespace assignment1
               listWine.load(wineCollection);
               loadMenu();
           }
+               //print csv file
           else if (UserInputMenu == "list")
             {
               //  printWine();
@@ -47,11 +52,19 @@ namespace assignment1
                    loadMenu();
                
             }
+               //seach csv file
             else if (UserInputMenu == "search")
             {
+                
+                string wineIdInput = string.Empty;
+                
                 Console.Write("You typed in search");
+                Console.WriteLine("Enter wine id");
+                wineIdInput = Console.ReadLine();
+                Console.WriteLine( searchWine.searchId(wineIdInput));
                 loadMenu();
             }
+               //add to the csv file
             else if (UserInputMenu == "add")
             {
                 Console.WriteLine("You typed in add");
@@ -71,7 +84,7 @@ namespace assignment1
             }    
          }
        }
-    
+                // method that reloads menu
             private static void loadMenu()
             {
                 Console.WriteLine("-----");
@@ -85,10 +98,15 @@ namespace assignment1
                 UserInputMenu = Console.ReadLine();
              }
 
+
+        //exits the program
             private static void End()
             {
                 //Closes the program
             }
+
+
+        //Code that is not used
             //private static void loadWine()
             // {
             //   WineItemCollection wineCollection = new WineItemCollection();

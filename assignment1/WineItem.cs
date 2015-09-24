@@ -20,7 +20,7 @@ namespace assignment1
         }
 
 
-        public string ID
+        public string WineID
         {
             get
             {
